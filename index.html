@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Mi Sistema</title>
+<<link rel="stylesheet" href="style.css">>
+  <title>Mi Sistema PRO</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Mi sistema de registro</h1>
+<h1>📊 Sistema de Registro</h1>
 
-<input id="nombre" placeholder="Nombre">
-<button onclick="guardar()">Guardar</button>
+<div class="card">
+  <input id="nombre" placeholder="Nombre">
+  <button onclick="guardar()">Guardar</button>
 
-<h3>Último registro</h3>
-<div id="resultado"></div>
+  <h3>Último registro</h3>
+  <div id="resultado"></div>
+</div>
 
 <script>
 function guardar() {
