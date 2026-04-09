@@ -2,63 +2,76 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Sistema de Registro PRO</title>
+  <title>DIGITADORES GOB</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="header">
-    <h1>DIGITADORES GOB</h1>
-    <div class="header-right">
-      <span class="rol">ROL: AUDITOR</span>
-      <button class="btn danger" onclick="limpiarTodo()">Cerrar Sesión</button>
-    </div>
-  </header>
+  <!-- LOGIN -->
+  <div id="loginCard" class="card">
+    <h2>Iniciar Sesión</h2>
+    <p>Selecciona tu usuario:</p>
+    <select id="usuarioSelect">
+      <option value="">-- Seleccionar --</option>
+      <option value="usuario1">Usuario 1</option>
+      <option value="usuario2">Usuario 2</option>
+      <option value="usuario3">Usuario 3</option>
+    </select>
+    <button class="btn primary" onclick="login()">Entrar</button>
+  </div>
 
-  <div class="container">
-
-    <!-- FORMULARIO -->
-    <div class="card form-card">
-      <input type="text" id="ampo" placeholder="AMPO">
-      <input type="text" id="digitador" placeholder="Digitador">
-      <input type="date" id="fecha">
-      <input type="number" id="cantidad" placeholder="Cantidad">
-      <div class="actions">
-        <button class="btn primary" onclick="agregarRegistro()">Agregar</button>
-        <button class="btn secondary" onclick="limpiarFormulario()">Limpiar</button>
-        <button class="btn success" onclick="exportarCSV()">Exportar CSV</button>
+  <!-- SISTEMA -->
+  <div id="sistema" style="display:none;">
+    <header class="header">
+      <img src="logo.png" alt="DIGITADORES GOB" class="logo">
+      <h1>DIGITADORES GOB</h1>
+      <div class="header-right">
+        <span id="rolUsuario"></span>
+        <button class="btn danger" onclick="logout()">Cerrar Sesión</button>
       </div>
-    </div>
+    </header>
 
-    <!-- CONTADORES -->
-    <div class="card contadores">
-      <div>Pendientes: <span id="totalPendientes">0</span></div>
-      <div>Finalizados: <span id="totalFinalizados">0</span></div>
-    </div>
+    <div class="container">
 
-    <!-- LISTAS -->
-    <div class="card listas">
-      <h3>Pendientes</h3>
-      <ul id="pendientes"></ul>
-    </div>
+      <!-- FORMULARIO -->
+      <div class="card form-card">
+        <input type="text" id="ampo" placeholder="AMPO">
+        <input type="text" id="digitador" placeholder="Digitador">
+        <input type="date" id="fecha">
+        <input type="number" id="cantidad" placeholder="Cantidad">
+        <div class="actions">
+          <button class="btn primary" onclick="agregarRegistro()">Agregar</button>
+          <button class="btn secondary" onclick="limpiarFormulario()">Limpiar</button>
+          <button class="btn success" onclick="exportarCSV()">Exportar CSV</button>
+        </div>
+      </div>
 
-    <div class="card listas">
-      <h3>Finalizados</h3>
-      <ul id="finalizados"></ul>
-    </div>
+      <!-- CONTADORES -->
+      <div class="card contadores">
+        <div>Pendientes: <span id="totalPendientes">0</span></div>
+        <div>Finalizados: <span id="totalFinalizados">0</span></div>
+      </div>
 
-    <!-- ÚLTIMO REGISTRO -->
-    <div class="card">
-      <h3>Último registro del día</h3>
-      <div id="ultimoRegistro"></div>
-    </div>
+      <!-- LISTAS -->
+      <div class="card listas">
+        <h3>Pendientes</h3>
+        <ul id="pendientes"></ul>
+      </div>
 
+      <div class="card listas">
+        <h3>Finalizados</h3>
+        <ul id="finalizados"></ul>
+      </div>
+
+      <!-- ÚLTIMO REGISTRO -->
+      <div class="card">
+        <h3>Último registro del día</h3>
+        <div id="ultimoRegistro"></div>
+      </div>
+
+    </div>
   </div>
 
   <script src="app.js"></script>
-</body>
-</html>
-</script>
-
 </body>
 </html>
