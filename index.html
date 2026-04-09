@@ -1,35 +1,63 @@
 <!DOCTYPE html>
-<html>
-<<link rel="stylesheet" href="style.css">>
-  <title>Mi Sistema PRO</title>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Registro PRO</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>📊 Sistema de Registro</h1>
+  <header class="header">
+    <h1>DIGITADORES GOB</h1>
+    <div class="header-right">
+      <span class="rol">ROL: AUDITOR</span>
+      <button class="btn danger" onclick="limpiarTodo()">Cerrar Sesión</button>
+    </div>
+  </header>
 
-<div class="card">
-  <input id="nombre" placeholder="Nombre">
-  <button onclick="guardar()">Guardar</button>
+  <div class="container">
 
-  <h3>Último registro</h3>
-  <div id="resultado"></div>
-</div>
+    <!-- FORMULARIO -->
+    <div class="card form-card">
+      <input type="text" id="ampo" placeholder="AMPO">
+      <input type="text" id="digitador" placeholder="Digitador">
+      <input type="date" id="fecha">
+      <input type="number" id="cantidad" placeholder="Cantidad">
+      <div class="actions">
+        <button class="btn primary" onclick="agregarRegistro()">Agregar</button>
+        <button class="btn secondary" onclick="limpiarFormulario()">Limpiar</button>
+        <button class="btn success" onclick="exportarCSV()">Exportar CSV</button>
+      </div>
+    </div>
 
-<script>
-function guardar() {
-  let nombre = document.getElementById("nombre").value;
+    <!-- CONTADORES -->
+    <div class="card contadores">
+      <div>Pendientes: <span id="totalPendientes">0</span></div>
+      <div>Finalizados: <span id="totalFinalizados">0</span></div>
+    </div>
 
-  localStorage.setItem("dato", nombre);
+    <!-- LISTAS -->
+    <div class="card listas">
+      <h3>Pendientes</h3>
+      <ul id="pendientes"></ul>
+    </div>
 
-  document.getElementById("resultado").innerText = nombre;
-}
+    <div class="card listas">
+      <h3>Finalizados</h3>
+      <ul id="finalizados"></ul>
+    </div>
 
-window.onload = () => {
-  document.getElementById("resultado").innerText =
-    localStorage.getItem("dato") || "Sin datos";
-}
+    <!-- ÚLTIMO REGISTRO -->
+    <div class="card">
+      <h3>Último registro del día</h3>
+      <div id="ultimoRegistro"></div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
 </script>
 
 </body>
